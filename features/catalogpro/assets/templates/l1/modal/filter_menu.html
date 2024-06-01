@@ -1,0 +1,40 @@
+<ion-modal-view cache-view="false"
+                sb-page-background
+                class="catalogpro catalogpro-filter-orders">
+
+    <ion-header-bar class="bar-custom">
+        <div class="buttons">
+            <button class="button button-clear"
+                    ng-click="closehomeProductFilterMenu()">
+                <i class="icon ion-sb-close-modal"></i>
+            </button>
+        </div>
+        <h1 class="title">{{ ::"Filter" | translate:"catalogpro" }} </h1>
+    </ion-header-bar>
+
+     <ion-content class="has-header">
+        <div class="list">
+
+            <div  class="item item-divider item-divider-custom">
+                {{ ::"Filter By Category" | translate:"catalogpro" }}
+            </div>
+       
+            <div class="item item-custom  item-avatar item-icon-right categories-list" ng-repeat="category in categories" ng-if="categories.length && !is_loading" ng-click="goToProductByCategory(category.id)">
+              <img ng-src="{{ catalogproImage(category.image) }}" >
+              <h2>{{ category.category_name }}</h2>
+              <p>{{category.total_product}} {{ ::"Items" | translate:"catalogpro" }}</p>
+              <i class="icon ion-chevron-right"></i>
+            </div>
+
+            <div class="item item-custom remove-border" ng-if="!categories.length && !is_loading">
+                <p class="text-center"> {{ ::"No Category Found!" | translate:"catalogpro" }}</p>
+            </div>
+
+
+        </div>
+
+
+
+    </ion-content>
+
+</ion-modal-view>

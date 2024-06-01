@@ -1,0 +1,230 @@
+<?php  $value_id = (new Catalogpro_Model_Catalogpro())->getCurrentValueId();
+       $categories = (new Catalogpro_Model_Category())->findAll(['value_id' => $value_id], 'position ASC');  
+?>
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-content-wrapper form-horizontal">
+            <div class="content solo-page">
+                <h3 class="title-editor border-blue text-center">
+                    <?php echo  p__("catalogpro", "Manage Products"); ?>
+                </h3>
+
+                <div class="subcontent content-color container-fluid">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <a href="/catalogpro/products/add" id="add_product"
+                                class="color-blue btn sb-tour pull-right">
+                                <?php echo  p__("catalogpro", "Create a new Product"); ?> </a>
+
+
+                            <div class="col-md-3 col-sm-12 col-xs-12  pull-right">
+                                <select class="input-flat sb-tour dt-search color-blue" name="cid" id="cid"
+                                    data-dynatable-query="cid">
+                                    <option value=""><?php echo p__('catalogpro', 'Select Category'); ?></option>
+                                    <?php foreach ($categories as $key => $category) : ?>
+                                    <option value="<?php echo $category->getId(); ?>">
+                                        <?php echo $category->getCategoryName(); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+                            <table id="dynamic-products" class="table content-white-bkg sb-pager">
+                                <thead>
+                                    <tr class="border-grey">
+                                        <th style="width: 5%"></th>
+                                        <th style="width: 5%;"><?php echo  p__("catalogpro", "ID"); ?></th>
+                                        <th style="width: 10%;"><?php echo  p__("catalogpro", "Image"); ?></th>
+                                        <th data-dynatable-column="product_name" style="width: 20%;">
+                                            <?php echo  p__("catalogpro", "Product Name"); ?></th>
+                                        <th style="width: 30%;"><?php echo  p__("catalogpro", "Shot Desciption"); ?>
+                                        </th>
+                                        <th data-dynatable-column="price" style="width: 10%;">
+                                            <?php echo  p__("catalogpro", "Price"); ?></th>
+                                        <th data-dynatable-column="status" style="width: 10%;">
+                                            <?php echo  p__("catalogpro", "Status"); ?></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="connectedSortable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="/app/sae/design/desktop/flat/js/dynatable/jquery.dynatable.css" media="screen" rel="stylesheet"
+    type="text/css">
+<script type="text/javascript" src="/app/sae/design/desktop/flat/js/dynatable/jquery.dynatable.js"></script>
+
+<script type="text/javascript">
+var uriParams = {};
+let rowTemplate = `
+    <tr class="dynarow" id="element_(ID)">
+        <td><i class="fa fa-arrows" aria-hidden="true"></i></td>
+        <td>#(ID)</td>
+        <td><img src="/images/application/(IMAGE)" width="30px" height="40px" ></td>
+        <td><b>(NAME)</b></td>
+        <td>(DESCIPTION)</td>
+         <td><span class="(ISSPECIALHIDE)">(PRICE)</span><span class="(ISSPECIALSHOW)">(SPECIALPRICE) <del>(PRICE)</del></span></td>
+        <td>(STATUS)</td>
+        <td>
+            <a class="edit-category btn btn-xs btn-info" href="/catalogpro/products/edit/id/(ID)">
+             <?php echo P__("catalogpro", "Edit") ?>
+            </a>
+        </td>
+        <td> 
+            <a class="delete-product btn btn-xs btn-danger" href="/catalogpro/products/delete/id/(ID)">
+             <?php echo P__("catalogpro", "Delete") ?>
+            </a>
+        </td>
+    </tr>`;
+
+function rowWriter(rowIndex, record, columns, cellWriter) {
+    var isSpecialhide = record.is_special == true ? 'hide' : 'show';
+    var isSpecialshow = record.is_special == true ? 'show' : 'hide';
+
+    return rowTemplate
+        .replace(/\(ID\)/g, record.id)
+        .replace(/\(NAME\)/g, record.product_name)
+        .replace(/\(PRICE\)/g, record.price)
+        .replace(/\(SPECIALPRICE\)/g, record.special_price)
+        .replace(/\(STATUS\)/g, record.status)
+        .replace(/\(DESCIPTION\)/g, record.short_description)
+        .replace(/\(ISSPECIALHIDE\)/g, isSpecialhide)
+        .replace(/\(ISSPECIALSHOW\)/g, isSpecialshow)
+        .replace(/\(IMAGE\)/g, record.product_image);
+}
+
+$.dynatableSetup({
+    table: {
+        defaultColumnIdStyle: 'noStyle'
+    },
+    features: {
+        paginate: true,
+        sort: true,
+        pushState: true,
+        search: true,
+        recordCount: true,
+        perPageSelect: false,
+    },
+});
+
+let tableCustomers = $('#dynamic-products');
+
+tableCustomers.bind('dynatable:preinit', function(e, dynatable) {
+    dynatable.utility.textTransform.noStyle = function(text) {
+        return text;
+    };
+});
+
+tableCustomers.bind('dynatable:afterProcess', function(e, data) {
+    uriParams = data.queries;
+});
+
+
+tableCustomers.bind('dynatable:push', function(e, dynatable) {
+    uriParams = dynatable.queries;
+});
+
+// And on the table
+tableCustomers.dynatable({
+    dataset: {
+        ajax: true,
+        ajaxUrl: '/catalogpro/products/find-all',
+        ajaxOnLoad: true,
+        records: [],
+        perPageDefault: 25
+    },
+    inputs: {
+        processingText: '<?php echo P__("catalogpro", "Loading ...") ?>',
+        searchPlaceholder: '<?php echo P__("catalogpro", "Search products ...") ?>',
+        recordCountText: '<?php echo P__("catalogpro", "Showing") ?> ',
+        filteredFrom: ' (<?php echo P__("catalogpro", "filtered from #TOTAL# total records") ?>)',
+        recordText: '<?php echo P__("catalogpro", "record") ?>',
+        recordTextPlural: '<?php echo P__("catalogpro", "records") ?>',
+        textOf: '<?php echo P__("catalogpro", "of") ?>',
+        textTo: '<?php echo P__("catalogpro", "to") ?>',
+        queries: $('.dt-search')
+    },
+    writers: {
+        _rowWriter: rowWriter
+    }
+});
+
+
+$(document).off("click", ".delete-product");
+$(document).on("click", ".delete-product", function(e) {
+    e.preventDefault();
+    let deleteHref = $(this).attr("href");
+    swal({
+        title: '<?php echo P__("catalogpro", "Confirmation") ?>',
+        text: '<?php echo P__("catalogpro", "Are you sure you want to delete this product?") ?>',
+        showCancelButton: true,
+        confirmButtonColor: '#0099C7',
+        confirmButtonText: '<?php echo P__("catalogpro", "Yes, delete!")?>',
+        cancelButtonText: '<?php echo P__("catalogpro", "No, go back") ?>',
+        buttons: true
+    }, function(value) {
+        if (!value) {
+            return false;
+        }
+
+        formget(deleteHref, {},
+            function(data) {
+                feature_form_success(data.message);
+                // Reload only on success and when done!
+                setTimeout(function() {
+                    location.reload();
+                }, 1500)
+            },
+            function(data) {
+                feature_form_error(JSON.parse(data.responseText).message);
+            },
+            false);
+    });
+});
+// (R)
+var $tabs = $('#dynamic-products');
+$(document).ready(function() {
+    $("tbody.connectedSortable")
+        .sortable({
+            connectWith: ".connectedSortable",
+            appendTo: $tabs,
+            helper: "clone",
+            cursor: 'move',
+            zIndex: 999990,
+            stop: function(event, ui) {
+                var data = $(this).sortable('toArray');
+
+                $.ajax({
+                    method: "POST",
+                    url: "<?php echo $this->getUrl('catalogpro/products/sortable'); ?>",
+                    data: {
+                        data: data,
+                        parent_id: 0
+                    }
+                }).done(function(msg) {});
+            }
+        })
+        .disableSelection();
+});
+// (R)
+</script>
+
+<style type="text/css">
+.dynatable-record-count {
+    bottom: 0px !important;
+}
+
+.text-blue {
+    color: #0099c7;
+}
+
+#dynamic-products {
+    margin-top: 15px;
+}
+</style>

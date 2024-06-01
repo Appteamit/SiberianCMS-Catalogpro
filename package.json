@@ -1,0 +1,13 @@
+{
+  "name": "Catalogpro",
+  "description": "The module will be useful for field reps to give to potential buyers to keep track of available products and pricing.!",
+  "type": "module",
+  "version": "1.1.7",
+  "replace_module": true,
+  "dependencies": {
+    "system": {
+      "type": "SAE",
+      "version": "4.17.8"
+    }
+  }
+}

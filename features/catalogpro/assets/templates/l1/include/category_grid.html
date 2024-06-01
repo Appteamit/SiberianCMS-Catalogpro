@@ -1,0 +1,36 @@
+<div class="list">
+ 
+   <div class="item item-divider"  ng-if="payout.categories.length && !is_loading">
+      <h2>{{ ::"What you like?" | translate:"catalogpro" }} </h2>
+  </div>
+
+  <div class="item item-custom catalogpro-category-item  category_grid remove-border"  ng-if="payout.categories.length && !is_loading">
+    <div class="row" ng-repeat="category in payout.categories" ng-if="$index % 3 === 0"> 
+          <div class="col col-33 text-center" ui-sref="catalogpro-products({value_id: value_id, category_id: payout.categories[$index].id })"  ng-if="$index < payout.categories.length">
+           <img class="catalogpro-category-grid-img" ng-src="{{ catalogproImage(payout.categories[$index].image) }}" style="width:100%;">
+            <h2 class="text-center category_name">{{ payout.categories[$index].category_name }}</h2>
+            <p class="category_product_count">{{payout.categories[$index].total_product}} {{ ::"Items" | translate:"catalogpro" }}</p>
+             <p class="short_description" ng-if="payout.categories[$index].short_description!=''">{{payout.categories[$index].short_description}}</p>
+          </div>
+          <div class="col col-33 text-center" ui-sref="catalogpro-products({value_id: value_id, category_id: payout.categories[$index + 1].id })" ng-if="$index + 1 < payout.categories.length">
+              <img class="catalogpro-category-grid-img" ng-src="{{ catalogproImage(payout.categories[$index + 1].image) }}" style="width:100%;">
+              <h2 class="text-center category_name">{{ payout.categories[$index + 1].category_name }}</h2>
+              <p class="category_product_count">{{payout.categories[$index + 1].total_product}} {{ ::"Items" | translate:"catalogpro" }}</p>
+              <p class="short_description" ng-if="payout.categories[$index+1].short_description!=''">{{payout.categories[$index+1].short_description}}</p>
+          </div>
+          <div class="col col-33 text-center" ui-sref="catalogpro-products({value_id: value_id, category_id: payout.categories[$index + 2].id })" ng-if="$index + 2 < payout.categories.length">
+               <img class="catalogpro-category-grid-img" ng-src="{{ catalogproImage(payout.categories[$index + 2].image) }}" style="width:100%;">
+              <h2 class="text-center category_name">{{ payout.categories[$index + 2].category_name }}</h2>
+              <p class="category_product_count">{{payout.categories[$index + 2].total_product}} {{ ::"Items" | translate:"catalogpro" }}</p>
+               <p class="short_description" ng-if="payout.categories[$index+2].short_description!=''">{{payout.categories[$index+2].short_description}}</p>
+          </div>
+    </div>
+
+  </div>	
+
+ 
+  <div class="item item-custom remove-border" ng-if="!payout.categories.length && !is_loading">
+    <p class="text-center"> {{ ::"No Category Found!" | translate:"catalogpro" }}</p>
+  </div>
+
+</div>

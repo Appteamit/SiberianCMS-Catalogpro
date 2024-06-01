@@ -1,0 +1,19 @@
+<div class="list">
+ 
+   <div class="item item-divider"  ng-if="payout.categories.length && !is_loading">
+  		<h2> {{ ::"What you like?" | translate:"catalogpro" }} </h2>
+  </div>
+
+	<div class="item item-custom item-thumbnail-left item-icon-right categories-list" ng-repeat="category in payout.categories" ng-if="payout.categories.length && !is_loading" ui-sref="catalogpro-products({value_id: value_id, category_id: category.id })">
+	  <img ng-src="{{ catalogproImage(category.image) }}" >
+	  <h2>{{ category.category_name }}</h2>
+	  <p ng-if="category.short_description!=''">{{category.short_description}}</p>
+	  <p>{{category.total_product}} {{ ::"Items" | translate:"catalogpro" }}</p>
+	  <i class="icon ion-chevron-right"></i>
+	</div>
+
+    <div class="item item-custom remove-border" ng-if="!payout.categories.length && !is_loading">
+    	<p class="text-center"> {{ ::"No Category Found!" | translate:"catalogpro" }}</p>
+  	</div>
+
+</div>

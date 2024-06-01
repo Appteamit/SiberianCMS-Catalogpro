@@ -1,0 +1,505 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-04-01T11:00:10+02:00\n"
+"PO-Revision-Date: 2019-04-01T11:00:10+02:00\n"
+"Language: \n"
+
+# GMT 1592854654.1001
+msgctxt "catalogpro"
+msgid "catalogpro"
+msgstr "catalogpro"
+
+# GMT 1592854654.1002
+#, mobile
+msgctxt "catalogpro"
+msgid "catalogpro"
+msgstr "catalogpro"
+
+# GMT 1592854654.1003
+msgctxt "catalogpro"
+msgid "Active"
+msgstr "Active"
+
+# GMT 1592854654.1004
+msgctxt "catalogpro"
+msgid "InActive"
+msgstr "InActive"
+
+# GMT 1592854654.1005
+msgctxt "catalogpro"
+msgid "Customer login required!"
+msgstr "Customer login required!"
+
+# GMT 1592854654.1006
+msgctxt "catalogpro"
+msgid "Saved successfully"
+msgstr "Saved successfully"
+
+# GMT 1592854654.1007
+msgctxt "catalogpro"
+msgid "Upload successfully"
+msgstr "Upload successfully"
+
+# GMT 1592854654.1008
+msgctxt "catalogpro"
+msgid "Info successfully saved"
+msgstr "Info successfully saved"
+
+# GMT 1592854654.1009
+msgctxt "catalogpro"
+msgid "Successfully deleted"
+msgstr "Successfully deleted"
+
+# GMT 1592854654.1010
+msgctxt "catalogpro"
+msgid "Settings"
+msgstr "Settings"
+
+# GMT 1592854654.1011
+msgctxt "catalogpro"
+msgid "Products"
+msgstr "Products"
+
+# GMT 1592854654.1012
+msgctxt "catalogpro"
+msgid "Category"
+msgstr "Category"
+
+# GMT 1592854654.1013
+msgctxt "catalogpro"
+msgid "Create a new Category"
+msgstr "Create a new Category"
+
+# GMT 1592854654.1014
+msgctxt "catalogpro"
+msgid "Category Name"
+msgstr "Category Name"
+
+# GMT 1592854654.1015
+msgctxt "catalogpro"
+msgid "Short Description"
+msgstr "Short Description"
+
+# GMT 1592854654.1016
+msgctxt "catalogpro"
+msgid "Image"
+msgstr "Image"
+
+# GMT 1592854654.1017
+msgctxt "catalogpro"
+msgid "Save"
+msgstr "Save"
+
+# GMT 1592854654.1018
+msgctxt "catalogpro"
+msgid "Edit Category"
+msgstr "Edit Category"
+
+# GMT 1592854654.1019
+msgctxt "catalogpro"
+msgid "Categories"
+msgstr "Categories"
+
+# GMT 1592854654.1020
+msgctxt "catalogpro"
+msgid "Status"
+msgstr "Status"
+
+# GMT 1592854654.1021
+msgctxt "catalogpro"
+msgid "Create a new Product"
+msgstr "Create a new Product"
+
+# GMT 1592854654.1022
+msgctxt "catalogpro"
+msgid "Products Name"
+msgstr "Products Name"
+
+# GMT 1592854654.1023
+msgctxt "catalogpro"
+msgid "Select Category"
+msgstr "Select Category"
+
+# GMT 1592854654.1024
+msgctxt "catalogpro"
+msgid "Category"
+msgstr "Category"
+
+# GMT 1592854654.1025
+msgctxt "catalogpro"
+msgid "Regular Price"
+msgstr "Regular Price"
+
+# GMT 1592854654.1026
+msgctxt "catalogpro"
+msgid "Special Price"
+msgstr "Special Price"
+
+# GMT 1592854654.1027
+msgctxt "catalogpro"
+msgid "Description"
+msgstr "Description"
+
+# GMT 1592854654.1028
+msgctxt "catalogpro"
+msgid "Edt Product"
+msgstr "Edt Product"
+
+# GMT 1592854654.1029
+msgctxt "catalogpro"
+msgid "Manage Products"
+msgstr "Manage Products"
+
+# GMT 1592854654.1030
+msgctxt "catalogpro"
+msgid "Price"
+msgstr "Price"
+
+# GMT 1592854654.1031
+#, mobile
+msgctxt "catalogpro"
+msgid "Error"
+msgstr "Error"
+
+# GMT 1592854654.1032
+#, mobile
+msgctxt "catalogpro"
+msgid "Thank you"
+msgstr "Thank you"
+
+# GMT 1592854654.1033
+#, mobile
+msgctxt "catalogpro"
+msgid "Your review has been submitted successfully!"
+msgstr "Your review has been submitted successfully!"
+
+# GMT 1592854654.1034
+#, mobile
+msgctxt "catalogpro"
+msgid "Rating & Reviews"
+msgstr "Rating & Reviews"
+
+# GMT 1592854654.1035
+#, mobile
+msgctxt "catalogpro"
+msgid "Leave a comment"
+msgstr "Leave a comment"
+
+# GMT 1592854654.1036
+#, mobile
+msgctxt "catalogpro"
+msgid "Submit"
+msgstr "Submit"
+
+# GMT 1592854654.1036
+#, mobile
+msgctxt "catalogpro"
+msgid "All Category"
+msgstr "All Category"
+
+# GMT 1592854654.1037
+#, mobile
+msgctxt "catalogpro"
+msgid "Filter"
+msgstr "Filter"
+
+# GMT 1592854654.1038
+#, mobile
+msgctxt "catalogpro"
+msgid "Filter By Category"
+msgstr "Filter By Category"
+
+# GMT 1592854654.1039
+#, mobile
+msgctxt "catalogpro"
+msgid "No Category Found!"
+msgstr "No Category Found!"
+
+# GMT 1592854654.1039
+#, mobile
+msgctxt "catalogpro"
+msgid "Items"
+msgstr "Items"
+
+# GMT 1592854654.1439
+#, mobile
+msgctxt "catalogpro"
+msgid "Report Comment"
+msgstr "Report Comment"
+
+# GMT 1592854654.1440
+#, mobile
+msgctxt "catalogpro"
+msgid "Select Reason"
+msgstr "Select Reason"
+
+# GMT 1592854654.1441
+#, mobile
+msgctxt "catalogpro"
+msgid "Please select a reason"
+msgstr "Please select a reason"
+
+# GMT 1592854654.1442
+#, mobile
+msgctxt "catalogpro"
+msgid "Submit Report"
+msgstr "Submit Report"
+
+# GMT 1592854654.1443
+#, mobile
+msgctxt "catalogpro"
+msgid "Inappropriate Content"
+msgstr "Inappropriate Content"
+
+# GMT 1592854654.1444
+#, mobile
+msgctxt "catalogpro"
+msgid "Spam"
+msgstr "Spam"
+
+# GMT 1592854654.1445
+#, mobile
+msgctxt "catalogpro"
+msgid "Harassment"
+msgstr "Harassment"
+
+# GMT 1592854654.1446
+#, mobile
+msgctxt "catalogpro"
+msgid "Abusive Language"
+msgstr "Abusive Language"
+
+# GMT 1592854654.1447
+#, mobile
+msgctxt "catalogpro"
+msgid "Additional Comment"
+msgstr "Additional Comment"
+
+# GMT 1592854654.1448
+#, mobile
+msgctxt "catalogpro"
+msgid "Report submitted successfully!"
+msgstr "Report submitted successfully!"
+
+# GMT 1592854654.1449
+#, mobile
+msgctxt "catalogpro"
+msgid "Success"
+msgstr "Success"
+
+# GMT 1592854654.1450
+#, mobile
+msgctxt "catalogpro"
+msgid ""
+msgstr ""
+
+# GMT 1592854654.1040
+#, mobile
+msgctxt "catalogpro"
+msgid "Rate Product"
+msgstr "Rate Product"
+
+# GMT 1592854654.1041
+#, mobile
+msgctxt "catalogpro"
+msgid "No Rating yet!"
+msgstr "No Rating yet!"
+
+# GMT 1592854654.1042
+#, mobile
+msgctxt "catalogpro"
+msgid "What you like?"
+msgstr "What you like?"
+
+# GMT 1592854654.1043
+#, mobile
+msgctxt "catalogpro"
+msgid "No Products Found!"
+msgstr "No Products Found!"
+
+# GMT 1592854654.1044
+msgctxt "catalogpro"
+msgid "Enable Comments"
+msgstr "Enable Comments"
+
+# GMT 1592854654.1045
+msgctxt "catalogpro"
+msgid "Enable Voting"
+msgstr "Enable Voting"
+
+# GMT 1592854654.1046
+msgctxt "catalogpro"
+msgid "Enable Favorites"
+msgstr "Enable Favorites"
+
+# GMT 1592854654.1047
+msgctxt "catalogpro"
+msgid "Admin Email"
+msgstr "Admin Email"
+
+# GMT 1592854654.1048
+msgctxt "catalogpro"
+msgid "Product Design"
+msgstr "Product Design"
+
+# GMT 1592854654.1049
+msgctxt "catalogpro"
+msgid "List"
+msgstr "List"
+
+# GMT 1592854654.1050
+msgctxt "catalogpro"
+msgid "Grid"
+msgstr "Grid"
+
+# GMT 1592854654.1051
+msgctxt "catalogpro"
+msgid "Category Design"
+msgstr "Category Design"
+
+# GMT 1592854654.1052
+msgctxt "catalogpro"
+msgid "Home Screen"
+msgstr "Home Screen"
+
+# GMT 1592854654.1053
+msgctxt "catalogpro"
+msgid "Product"
+msgstr "Product"
+
+# GMT 1592854654.1054
+msgctxt "catalogpro"
+msgid "Background (portrait) 1080 x 1920"
+msgstr "Background (portrait) 1080 x 1920"
+
+# GMT 1592854654.1055
+msgctxt "catalogpro"
+msgid "Background (landscape) 1920 x 1080"
+msgstr "Background (landscape) 1920 x 1080"
+
+# GMT 1592854654.1056
+msgctxt "catalogpro"
+msgid "ID"
+msgstr "ID"
+
+# GMT 1592854654.1057
+msgctxt "catalogpro"
+msgid "Search products ..."
+msgstr "Search products ..."
+
+# GMT 1592854654.1058
+msgctxt "catalogpro"
+msgid "Loading ..."
+msgstr "Loading ..."
+
+# GMT 1592854654.1059
+msgctxt "catalogpro"
+msgid "Showing"
+msgstr "Showing"
+
+# GMT 1592854654.1060
+msgctxt "catalogpro"
+msgid "filtered from #TOTAL# total records"
+msgstr "filtered from #TOTAL# total records"
+
+# GMT 1592854654.1061
+msgctxt "catalogpro"
+msgid "record"
+msgstr "record"
+
+# GMT 1592854654.1062
+msgctxt "catalogpro"
+msgid "records"
+msgstr "records"
+
+# GMT 1592854654.1063
+msgctxt "catalogpro"
+msgid "of"
+msgstr "of"
+
+# GMT 1592854654.1064
+msgctxt "catalogpro"
+msgid "to"
+msgstr "to"
+
+# GMT 1592854654.1065
+msgctxt "catalogpro"
+msgid "Product Name"
+msgstr "Product Name"
+
+# GMT 1592854654.1066
+msgctxt "catalogpro"
+msgid "Shot Desciption"
+msgstr "Shot Desciption"
+
+# GMT 1592854654.1067
+msgctxt "catalogpro"
+msgid "Delete"
+msgstr "Delete"
+
+# GMT 1592854654.1068
+msgctxt "catalogpro"
+msgid "Edit"
+msgstr "Edit"
+
+# GMT 1592854654.1069
+msgctxt "catalogpro"
+msgid "Back"
+msgstr "Back"
+
+# GMT 1592854654.1070
+msgctxt "catalogpro"
+msgid "Size"
+msgstr "Size"
+
+# GMT 1592854654.1071
+msgctxt "catalogpro"
+msgid "Confirmation"
+msgstr "Confirmation"
+
+# GMT 1592854654.1072
+msgctxt "catalogpro"
+msgid "Are you sure you want to delete this product?"
+msgstr "Are you sure you want to delete this product?"
+
+# GMT 1592854654.1073
+msgctxt "catalogpro"
+msgid "Yes, delete!"
+msgstr "Yes, delete!"
+
+# GMT 1592854654.1074
+msgctxt "catalogpro"
+msgid "No, go back"
+msgstr "No, go back"
+
+# GMT 1592854654.1075
+msgctxt "catalogpro"
+msgid "QRcode"
+msgstr "QRcode"
+
+# GMT 1592854654.1076
+msgctxt "catalogpro"
+msgid "Search Category ..."
+msgstr "Search Category ..."
+
+# GMT 1592854654.1077
+msgctxt "catalogpro"
+msgid "Are you sure you want to delete this Category?"
+msgstr "Are you sure you want to delete this Category?"
+
+# GMT 1592854654.1077
+msgctxt "catalogpro"
+msgid "Cancel"
+msgstr "Cancel"
+
+# GMT 1592854654.1078
+msgctxt "catalogpro"
+msgid ""
+msgstr ""

@@ -1,0 +1,30 @@
+<ion-view class="module-catalogpro catalogpro catalogpro-report catalogpro-home-l1"
+          sb-page-background>
+    <ion-nav-title>{{ ::"Report Comment" | translate:"catalogpro" }}</ion-nav-title>
+    <ion-nav-buttons side="secondary">
+        <!-- <button class="button button-clear">
+            <i class="icon ion-refresh"></i>
+        </button> -->
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="loader" ng-show="is_loading">
+         <ion-spinner class="spinner-custom"></ion-spinner>
+        </div> 
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                {{ ::"Select Reason" | translate:"catalogpro" }}
+                </div>
+                <select ng-model="report_data.selectedReason" ng-options="reason for reason in reportReasons" required>
+                <option value="" disabled selected>{{ ::'Please select a reason' | translate:'catalogpro' }}</option>
+                </select>
+            </label>
+
+            <label class="item item-input">
+                <textarea placeholder="{{ ::'Additional Comment' | translate:'catalogpro' }}" ng-model="report_data.additionalComments" rows="10"></textarea>
+            </label>
+
+            <div style="padding: 10px;"><button class="button button-block button-positive button-positive-custom" type="button" ng-click="submitReport()" ng-disabled="report_data.selectedReason==''">{{ ::"Submit Report" | translate:"catalogpro" }}</button></div>
+            </div>
+    </ion-content>
+</ion-view>

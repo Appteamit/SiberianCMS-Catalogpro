@@ -1,0 +1,59 @@
+<ion-view sb-page-background
+          class="catalogpro catalogpro-home">
+    <ion-nav-title>{{page_title}}</ion-nav-title>
+  
+    <ion-nav-buttons side="secondary">
+      <a class="button button-clear header-item" ui-sref="catalogpro-products-favorites({value_id: value_id})">
+         <i class="icon ion-heart"></i>
+      </a>  
+      <a class="button button-clear header-item" ui-sref="catalogpro-products-search({value_id: value_id})">
+         <i class="icon ion-search"></i>
+      </a> 
+    </ion-nav-buttons>
+    
+    <ion-content class="has-header" 
+                id="catalogpro-content"
+                scrollbar-y="false"
+                overflow-scroll="false"
+                delegate-handle="mainScroll">
+      
+        <div class="loader" ng-show="is_loading">
+         <ion-spinner class="spinner-custom"></ion-spinner>
+        </div> 
+        <div class="row">
+            <div class="col">
+                <select
+                    class="input-text"
+                    style="
+                        width: 100%;
+                        padding: 5px;
+                        font-size: medium;
+                        border-radius: 3px;
+                        border: 1px solid rgb(169, 169, 169);
+                    "
+                    ng-model="custom_filter.category_id"
+                    ng-change="goToProductByCategory(custom_filter.category_id)"             
+                    >
+                    <option ng-repeat="category in categories"  value="{{category.id}}">{{category.category_name}}</option>
+                    <option value="">
+                        {{ ::"All Category" | translate:'catalogpro' }}
+                    </option>
+                </select>
+          </div>
+          </div> 
+        <ng-include ng-if="!is_loading && settings.product_design == 'list' && settings.home_screen == 'product'" src="'./features/catalogpro/assets/templates/l1/include/product_list.html'"></ng-include>
+
+        <ng-include ng-if="!is_loading && settings.product_design == 'grid' && settings.home_screen == 'product'" src="'./features/catalogpro/assets/templates/l1/include/product_grid.html'"></ng-include>
+
+        <ng-include ng-if="!is_loading && settings.category_design == 'list' && settings.home_screen == 'category'" src="'./features/catalogpro/assets/templates/l1/include/category_list.html'"></ng-include>
+
+        <ng-include ng-if="!is_loading && settings.category_design == 'grid' && settings.home_screen == 'category'" src="'./features/catalogpro/assets/templates/l1/include/category_grid.html'"></ng-include>
+   
+    </ion-content>
+
+
+     <!-- <button class="button light ion-funnel button-floating-action button-positive button-positive-custom" ng-if="!is_loading && (settings.product_design == 'list' || settings.product_design == 'grid') && settings.home_screen == 'product'" ng-click="homeProductFilterMenu()"> -->
+
+    </button> 
+
+</ion-view>

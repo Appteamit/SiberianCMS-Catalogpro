@@ -1,0 +1,78 @@
+{
+  "name": "Catalogpro",
+  "code": "catalogpro",
+  "version": "1.0.0.1",
+  "category": "monetization",
+  "model": "Catalogpro_Model_Catalogpro",
+  "desktop_uri": "catalogpro/application/",
+  "routes": [
+    {
+      "root": true,
+      "state": "catalogpro-home",
+      "controller": "CatalogproHomeController",
+      "url": "catalogpro/mobile_list/index/value_id/:value_id",
+      "template": "l1/home.html",
+      "cache": false
+    },
+    {
+      "root": false,
+      "state": "catalogpro-products",
+      "controller": "CatalogproProductsController",
+      "url": "catalogpro/mobile_list/index/value_id/:value_id/category_id/:category_id/is_scan/:is_scan",
+      "template": "l1/products.html",
+      "cache": false
+    },
+    {
+      "root": false,
+      "state": "catalogpro-product_details",
+      "controller": "CatalogproProductDetailsController",
+      "url": "catalogpro/mobile_list/index/value_id/:value_id/product_id/:product_id",
+      "template": "l1/product_details.html",
+      "cache": false
+    },
+    {
+      "root": false,
+      "state": "catalogpro-report",
+      "controller": "CatalogproReportController",
+      "url": "catalogpro/mobile_list/index/value_id/:value_id/comment_id/:comment_id/product_id/:product_id",
+      "template": "l1/report.html",
+      "cache": false
+    },
+    {
+      "root": false,
+      "state": "catalogpro-rating",
+      "controller": "CatalogproRatingController",
+      "url": "catalogpro/mobile_list/index/value_id/:value_id/product_id/:product_id",
+      "template": "l1/add_comment.html",
+      "cache": false
+    },
+    {
+      "root": false,
+      "state": "catalogpro-products-search",
+      "controller": "CatalogproProductsSearchController",
+      "url": "catalogpro/mobile_list/index/value_id/:value_id",
+      "template": "l1/search.html",
+      "cache": false
+    },
+    {
+      "root": false,
+      "state": "catalogpro-products-favorites",
+      "controller": "CatalogproProductFavoritesController",
+      "url": "catalogpro/mobile_list/index/value_id/:value_id",
+      "template": "l1/favorites.html",
+      "cache": false
+    }       
+  ],
+  "icons": [
+    "icons/catalogpro-flat.png"
+  ],
+  "files": [
+    "js/controllers/catalogpro.js",
+    "js/factory/catalogpro.js",
+    "scss/catalogpro.scss"
+  ],
+  "compile": true,
+  "use_account": true,
+  "only_once": true,
+  "load_on_start": false   
+}

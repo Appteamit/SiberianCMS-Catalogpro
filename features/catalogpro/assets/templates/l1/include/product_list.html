@@ -1,0 +1,34 @@
+<ion-refresher ng-if="use_pull_refresh"
+                       class="spinner-custom"
+                       pulling-text="{{ ::'Pull to refresh...' | translate }}"
+                       on-refresh="pullToRefresh()">
+ </ion-refresher>
+
+<div class="list">
+
+   <div class="item item-custom item-thumbnail-left products-list" ng-repeat="product in payout.products" ng-if="payout.products.length && !is_loading" ng-click="productDetailsById(product.id)" >
+      <img class="catalogpro-product-list-img" ng-src="{{ catalogproProductImage(product.product_image) }}" >
+    <!--   <span ng-click="markAsFavorite(product.id)"
+            class="icon icon-active-custom item-note product-favorite">
+          <i class="icon ion-android-favorite{{ product.is_favorite == 1 ? '' : '-outline'}}"></i>
+      </span>
+ -->
+	    <h2 class="product_name">{{ product.product_name }}</h2>
+	    <p class="short_description" ng-if="product.short_description!=''">{{ product.short_description }}</p>
+	    <p class="product_price" ng-if="!product.is_special && !product.is_price_empty">{{ product.price }} 
+      </p>
+        <p class="product_price" ng-if="product.is_special">{{ product.special_price }} <del class="icon-danger-custom">{{ product.price }}</del>
+       </p>
+	</div>
+
+    <div class="item item-custom remove-border" ng-if="!payout.products.length && !is_loading">
+    	<p class="text-center"> {{ ::"No Products Found!" | translate:"catalogpro" }}</p>
+  	</div>
+</div>
+
+ <ion-infinite-scroll ng-if="can_load_older_items && !is_loading"
+          on-infinite="loadMoreProducts()"
+          immediate-check="false"
+          distance="50%"
+          class="spinner-custom">
+</ion-infinite-scroll>

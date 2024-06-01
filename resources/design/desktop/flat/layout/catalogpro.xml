@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+
+    <catalogpro_application_edit>
+        <views>
+            <content class="application_view_customization_features_edit_tabbareditor" template="application/customization/features/edit/tabbar_editor.phtml" />
+            <content_editor class="core_view_default" template="catalogpro/application/edit.phtml" />
+        </views>
+    </catalogpro_application_edit>
+
+    <catalogpro_products_list>
+        <addLayout name="admin_menu" />
+        <addLayout name="customization_default" />
+        <base>
+            <title>Catalog Products</title>
+        </base>
+        <views>
+            <content class="admin_view_default" template="catalogpro/products/list.phtml" />
+        </views>
+        <actions>
+            <content name="setCurrentLink"><code>catalogpro</code></content>
+        </actions>
+    </catalogpro_products_list>
+
+    <catalogpro_products_add>
+        <addLayout name="admin_menu" />
+        <addLayout name="customization_default" />
+        <base>
+            <title>Catalog Products Add</title>
+        </base>
+        <views>
+            <content class="admin_view_default" template="catalogpro/products/add.phtml" />
+        </views>
+        <actions>
+            <content name="setCurrentLink"><code>catalogpro</code></content>
+        </actions>
+    </catalogpro_products_add>
+
+    <catalogpro_products_edit>
+        <addLayout name="admin_menu" />
+        <addLayout name="customization_default" />
+        <base>
+            <title>Catalog Products Edit</title>
+        </base>
+        <views>
+            <content class="admin_view_default" template="catalogpro/products/edit.phtml" />
+        </views>
+        <actions>
+            <content name="setCurrentLink"><code>catalogpro</code></content>
+        </actions>
+    </catalogpro_products_edit>
+
+    <catalogpro_category_list>
+        <addLayout name="admin_menu" />
+        <addLayout name="customization_default" />
+        <base>
+            <title>Catalog Category</title>
+        </base>
+        <views>
+            <content class="admin_view_default" template="catalogpro/category/list.phtml" />
+        </views>
+        <actions>
+            <content name="setCurrentLink"><code>catalogpro</code></content>
+        </actions>
+    </catalogpro_category_list>
+
+    <catalogpro_category_add>
+        <addLayout name="admin_menu" />
+        <addLayout name="customization_default" />
+        <base>
+            <title>Catalog Category Add</title>
+        </base>
+        <views>
+            <content class="admin_view_default" template="catalogpro/category/add.phtml" />
+        </views>
+        <actions>
+            <content name="setCurrentLink"><code>catalogpro</code></content>
+        </actions>
+    </catalogpro_category_add>
+
+    <catalogpro_category_edit>
+        <addLayout name="admin_menu" />
+        <addLayout name="customization_default" />
+        <base>
+            <title>Catalog Category Add</title>
+        </base>
+        <views>
+            <content class="admin_view_default" template="catalogpro/category/edit.phtml" />
+        </views>
+        <actions>
+            <content name="setCurrentLink"><code>catalogpro</code></content>
+        </actions>
+    </catalogpro_category_edit>
+
+</layout>

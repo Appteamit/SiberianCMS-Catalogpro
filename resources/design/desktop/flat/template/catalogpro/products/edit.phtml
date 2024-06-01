@@ -1,0 +1,284 @@
+<?php  $value_id = (new Catalogpro_Model_Catalogpro())->getCurrentValueId();
+       $categories = (new Catalogpro_Model_Category())->findAll(['value_id' => $value_id], 'position ASC');
+       $product = $this->getCurrentProduct();
+       $productImages = $this->getProductImages();  
+?>
+<div class="row" id="add-product-form">
+    <div class="col-md-12">
+        <div class="page-content-wrapper form-horizontal">
+            <div class="content solo-page">
+                <h3 class="title-editor border-blue text-center">
+                    <?php echo p__("catalogpro","Edt Product"); ?> - #<?php echo $product->getId(); ?>
+                    <a href="/catalogpro/products/list" id="cancel_product" style="margin-left: 1px; margin-top: -5px;"
+                        class="color-blue btn pull-left sb-tour"><?php  echo p__("catalogpro", "Back"); ?></a>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="productForm" action="<?php echo $this->getUrl('catalogpro/products/save'); ?>" method="post"
+    class="form-horizontal">
+    <input type="hidden" name="value_id" value="<?php echo $value_id; ?>">
+    <input type="hidden" name="id" value="<?php echo $product->getId(); ?>">
+
+    <div class="row">
+        <!-- First div -->
+        <div class="col-md-8">
+            <div class="page-content-wrapper form-horizontal">
+                <div class="content solo-page">
+                    <div id="customer_forms" class="first-row-feature content-color container-fluid">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <label
+                                    for="product_name"><?php echo p__('catalogpro', 'Products Name') ?><span>*</span></label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" value="<?php echo $product->getProductName(); ?>"
+                                    class="required input-flat" name="product_name" id="product_name" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <label
+                                    for="short_description"><?php echo p__('catalogpro', 'Short Description') ?><span>*</span></label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" value="<?php echo $product->getShortDescription(); ?>"
+                                    class="required input-flat" name="short_description" id="short_description" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <label for="category"><?php echo p__('catalogpro', 'Category'); ?><span>*</span></label>
+                            </div>
+                            <div class="col-sm-9">
+                                <select class="required styled-select" name="category" id="category">
+                                    <option value=""><?php echo p__('catalogpro', 'Select Category'); ?></option>
+                                    <?php foreach ($categories as $key => $category) : ?>
+                                    <option
+                                        <?php echo $this->getCategoryId() == $category->getId() ? "selected='selected'" : ""; ?>
+                                        value="<?php echo $category->getId(); ?>">
+                                        <?php echo $category->getCategoryName(); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <label for="price"><?php echo p__('catalogpro', 'Regular Price') ?> </label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" value="<?php echo $product->getPrice(); ?>" class="input-flat"
+                                    name="price" id="price" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <label for="special_price"><?php echo p__('catalogpro', 'Special Price') ?></label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" value="<?php echo $product->getSpecialPrice(); ?>" class="input-flat"
+                                    name="special_price" id="special_price" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <label
+                                    for="description"><?php echo p__('catalogpro', 'Description') ?><span>*</span></label>
+                            </div>
+                            <div class="col-sm-9">
+                                <textarea cols="12" rows="6" class="required input-flat" name="description"
+                                    id="description"><?php echo $product->getDescription(); ?></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <label for="image"><?php echo p__('catalogpro', 'Image'); ?><span>*</span></label>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="product-images-container">
+                                    <?php foreach ($productImages as $key => $image) : ?>
+                                    <div class="cms-image"
+                                        style="background-image: url(/images/application/<?php echo $image->getProductImage(); ?>);min-height: 100px;">
+                                        <div class="catalogpro-image-delete"
+                                            href="/catalogpro/products/delete-image/id/<?php echo $image->getId(); ?>">
+                                            <i class="fa fa-times"></i>
+                                        </div>
+                                    </div>
+                                    <?php endforeach; ?>
+
+                                    <img class="uploadSingleImage"
+                                        src="/app/local/modules/Catalogpro/resources/design/desktop/flat/images/upload-icon.png"
+                                        width="100px" height="100px">
+                                    <br>
+                                    <span><?php echo p__('catalogpro', 'Size'); ?>(200*270)</span>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="status" class="checkbox-inline">
+                                    <input type="checkbox" id="status" name="status" value="1"
+                                        class="color-blue checkbox sb-tour"
+                                        <?php echo $product->getStatus() == 1 ? "checked='checked'" : ""; ?> />
+                                    <?php echo p__("catalogpro", 'Active'); ?>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button name="submit" value="Save" type="submit"
+                            class="color-blue btn pull-right"><?php echo p__("catalogpro", "Save"); ?></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<form id="product_image_form" method="post" role="form" enctype="multipart/form-data">
+    <input style="display:none" id="product_image_file" class="uploader" type="file" name="files"
+        data-url="<?php echo $this->getUrl('template/crop/upload'); ?>">
+</form>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    bindForms("#add-product-form");
+
+    // Load window.feature_links
+    $.ajax({
+        url: '/application/customization_features/links',
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            window.feature_links = data;
+        }
+    });
+    setTimeout(function() {
+        ckeditor_config.cms.allowedContent = true; // (R)
+        $('#description').ckeditor(ckeditor_config.cms);
+    }, 100);
+
+    $('#productForm').submit(function() {
+        if ($(this).valid()) {
+            reload(this, this.action, true, function(data) {
+                if (data.success) {
+                    feature_form_success(data.message);
+                    window.location = $('#cancel_product').attr("href");
+                } else {
+                    feature_form_error(data.message);
+                }
+            });
+        }
+        return false;
+    });
+});
+
+/*Image Upload*/
+$(".uploadSingleImage").click(function(e) {
+    $('#product_image_file').trigger('click');
+});
+
+var Uploader = new Uploader();
+var image_view_template =
+    '<?php echo str_replace("\n", "", '<div class="cms-image" style="background-image: url(#THUMBNAIL_PATH#);"><div class="catalogpro-image-delete"><i class="fa fa-times"></i></div><img src="/images/application/placeholder/blank-512.png"  width="200px" height="200px" class="cms-image-unit" /><input type="hidden" name="images[]" value="%IMAGE_PATH%" /></div>' ); ?>';
+
+$('#product_image_file').fileupload({
+    dataType: 'json',
+    add: function(e, data) {
+        data.submit();
+        Uploader.showProgressbar();
+    },
+    progressall: function(e, data) {
+        Uploader.moveProgressbar(data);
+    },
+    fail: function(el, data) {
+        Uploader.hide();
+        Uploader.showError(JSON.parse(data.jqXHR.responseText).message);
+    },
+    done: function(e, data) {
+        if (data.result.error) {
+            Uploader.hide();
+            Uploader.showError(data.result.message);
+        }
+        if (data.result.success) {
+            Uploader.hide();
+            var params = [];
+            params["url"] = '<?php echo $this->getUrl('template/crop/crop'); ?>';
+            params["file"] = data.result.files;
+            params["output_w"] = 200;
+            params["output_h"] = 265;
+            params["output_url"] =
+                '<?php echo str_replace('/', '$', $this->getUrl('catalogpro/application/crop')) ?>';
+            params["uploader"] = 'Uploader';
+            Uploader.crop(params);
+
+            Uploader.callback = function(file) {
+                var cms_image = image_view_template;
+                cms_image = cms_image.replace("%IMAGE_PATH%", file);
+                cms_image = cms_image.replace("#THUMBNAIL_PATH#",
+                    '<?php echo Core_Model_Directory::getTmpDirectory(); ?>/' + file);
+                $(".product-images-container").append(cms_image);
+            };
+        }
+    }
+});
+
+/* $(document).on("click", ".catalogpro-image-delete", function() {
+        var el = $(this);
+        el.parents(".cms-image").remove();
+    }); 
+*/
+
+$(document).off("click", ".catalogpro-image-delete");
+$(document).on("click", ".catalogpro-image-delete", function(e) {
+    e.preventDefault();
+    if ($(this).attr("href") != undefined) {
+
+        let deleteHref = $(this).attr("href");
+        swal({
+            title: '<?php echo P__("catalogpro", "Confirmation") ?>',
+            text: '<?php echo P__("catalogpro", "Are you sure you want to delete this image?") ?>',
+            showCancelButton: true,
+            confirmButtonColor: '#0099C7',
+            confirmButtonText: '<?php echo P__("catalogpro", "Yes, delete!")?>',
+            cancelButtonText: '<?php echo P__("catalogpro", "No, go back") ?>',
+            buttons: true
+        }, function(value) {
+            if (!value) {
+                return false;
+            }
+
+            formget(deleteHref, {},
+                function(data) {
+                    feature_form_success(data.message);
+                    // Reload only on success and when done!
+                    setTimeout(function() {
+                        location.reload();
+                    }, 1500)
+                },
+                function(data) {
+                    feature_form_error(JSON.parse(data.responseText).message);
+                },
+                false);
+        });
+
+    } else {
+        var el = $(this);
+        el.parents(".cms-image").remove();
+    }
+
+});
+</script>

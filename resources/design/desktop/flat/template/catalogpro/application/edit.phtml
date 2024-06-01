@@ -1,0 +1,65 @@
+<?php $option_value = $this->getOptionValue(); 
+ $value_id = $option_value->getId(); 
+ 
+ /*Setting form*/
+$settings = new Catalogpro_Form_Settings();
+$settings->setElementValueById('value_id', $value_id); 
+// $settings->addNav("design-save-nav", "Submit", false);
+$settingModel = (new Catalogpro_Model_Settings())->find($option_value->getId(), "value_id")->setValueId($value_id)->save();
+if($settingModel->getId()) {
+  $settings->populate($settingModel->getData());
+}
+?>
+
+<div id="loadContent">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs parent-tab  recognition_list" role="tablist">
+        <li class="active" role="presentation">
+            <a href="#settings" aria-controls="access" role="tab" data-toggle="tab">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+                <span class="hidden-xs access"><?php echo p__('catalogpro', "Settings") ?></span>
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="/catalogpro/products/list" target="_blank">
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                <span class="hidden-xs access"><?php echo p__('catalogpro', "Products") ?></span>
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="/catalogpro/category/list" target="_blank">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+                <span class="hidden-xs access"><?php echo p__('catalogpro', "Category") ?></span>
+            </a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+
+        <!-- Layout settings tab -->
+        <div role="tabpanel" class="tab-pane active" id="settings">
+            <div class="feature-block-list">
+                <h3 class="title-editor no-border-radius title-feature-indent" style="position: relative;">
+                    <?php echo p__('catalogpro', 'Settings'); ?>
+                </h3>
+            </div>
+            <br>
+            <div class="container-fluid first-row-feature content-feature feature-manage-items">
+                <?php echo $settings; ?>
+            </div>
+            <br>
+            <!-- Passcode background set -->
+            <div class="section">
+                <?php echo $this->importBackground($option_value, false, false); ?>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    bindForms("#loadContent");
+});
+</script>

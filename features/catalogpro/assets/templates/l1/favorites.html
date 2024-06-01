@@ -1,0 +1,21 @@
+<ion-view sb-page-background
+          class="catalogpro catalogpro-products">
+    <ion-nav-title>{{ ::"Favorites" | translate:"catalogpro" }}</ion-nav-title>
+  
+    <ion-content class="has-header" 
+                id="catalogpro-content"
+                scrollbar-y="false"
+                overflow-scroll="false"
+                delegate-handle="mainScroll">
+      
+        <div class="loader" ng-show="is_loading">
+         <ion-spinner class="spinner-custom"></ion-spinner>
+        </div> 
+    
+        <ng-include ng-if="!is_loading && settings.product_design == 'list'" src="'./features/catalogpro/assets/templates/l1/include/product_list.html'"></ng-include>
+
+        <ng-include ng-if="!is_loading && settings.product_design == 'grid'" src="'./features/catalogpro/assets/templates/l1/include/product_grid.html'"></ng-include>
+
+    </ion-content>
+ 
+</ion-view>
