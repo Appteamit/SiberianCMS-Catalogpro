@@ -23,8 +23,9 @@
                                slide-interval="3000"
                                show-pager="true" ,
                                does-continue="true">
-                    <ion-slide ng-repeat="image in product_details.gallery">
-                        <img zoom-view zoom-src="{{ catalogproProductImage(image.product_image)}}" class="product-feature-img" ng-src="{{ catalogproProductImage(image.product_image) }}" style="width:100%;"/>
+                    <ion-slide ng-repeat="image in product_details.gallery" ng-click="showPopup(image.product_image, product_details.product.product_name)">
+                        <!-- <img zoom-view zoom-src="{{ catalogproProductImage(image.product_image)}}" class="product-feature-img" ng-src="{{ catalogproProductImage(image.product_image) }}" style="width:100%;"/> -->
+                        <img class="product-feature-img" ng-src="{{ catalogproProductImage(image.product_image) }}" style="width:100%;"/>
                     </ion-slide>
                 </ion-slide-box>
                 <img class="product-feature-img" ng-if="product_details.total_images == 0" ng-src="{{ catalogproProductImage(null) }}" style="width:100%;">

@@ -297,6 +297,12 @@ msgstr "Success"
 # GMT 1592854654.1450
 #, mobile
 msgctxt "catalogpro"
+msgid "Close"
+msgstr "Close"
+
+# GMT 1592854654.1451
+#, mobile
+msgctxt "catalogpro"
 msgid ""
 msgstr ""
 

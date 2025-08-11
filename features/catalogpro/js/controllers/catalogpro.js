@@ -466,7 +466,7 @@ angular.module('starter')
                 $scope.$broadcast('scroll.infiniteScrollComplete');
             });
         }
-}).controller('CatalogproProductDetailsController', function (Dialog, Loader, $controller, Customer, $rootScope, SB, $scope, $state, $stateParams, $translate, Catalogpro, $timeout, $ionicModal, $filter) {
+}).controller('CatalogproProductDetailsController', function (Dialog, Loader, $controller, Customer, $rootScope, SB, $scope, $state, $stateParams, $translate, Catalogpro, $timeout, $ionicModal, $filter, $ionicPopup) {
         angular.extend(this, $controller('CatalogproProductsFunctionsController', {
         Dialog: Dialog,
         $rootScope: $rootScope,
@@ -509,6 +509,21 @@ angular.module('starter')
             Dialog.alert($translate.instant("Error", "catalogpro") ,error.message , "OK", -1, "catalogpro");         
         });
     };
+
+    $scope.showPopup = function(image, title) {
+        image = $scope.catalogproImage(image);
+        $ionicPopup.show({
+            template: '<img src="' + image + '" style="max-width:100%;max-height:100%;">',
+            title: title,
+            scope: $scope,
+            buttons: [
+                {
+                text: $translate.instant("Close", "catalogpro"),
+                type: 'button-positive'
+                }
+            ]
+        });
+   };
       /**
      *catalogpro Image 
      */

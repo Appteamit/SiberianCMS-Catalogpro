@@ -27,38 +27,38 @@ class Catalogpro_Model_Catalogpro extends Core_Model_Default
         return $inAppStates;
     }
 
-    /**
-     * @return null
-     */
-    public static function getCurrentValueId()
-    {
-        $app = self::getApplication();
-        if ($app) {
-            $options = $app->getOptions();
-            foreach ($options as $option) {
-                if ($option->getCode() === "catalogpro") {
-                    return $option->getId();
-                }
+   /**
+ * @return null
+ */
+public function getCurrentValueId()
+{
+    $app = $this->getApplication();
+    if ($app) {
+        $options = $app->getOptions();
+        foreach ($options as $option) {
+            if ($option->getCode() === "catalogpro") {
+                return $option->getId();
             }
         }
-        return null;
     }
+    return null;
+}
 
-    /**
-     * @return null
-     */
-    public static function getCurrent()
-    {
-        $app = self::getApplication();
-        if ($app) {
-            $options = $app->getOptions();
-            foreach ($options as $option) {
-                if ($option->getCode() === "catalogpro") {
-                    return $option;
-                }
+/**
+ * @return null
+ */
+public function getCurrent()
+{
+    $app = $this->getApplication();
+    if ($app) {
+        $options = $app->getOptions();
+        foreach ($options as $option) {
+            if ($option->getCode() === "catalogpro") {
+                return $option;
             }
         }
-        return null;
     }
+    return null;
+}
  
 }
